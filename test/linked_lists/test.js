@@ -18,24 +18,24 @@ const buildList = function(num, fcn = (num) => num) {
 describe('LinkedList', () => {
   describe('Level One', () => {
     describe("#Count", () => {
-      xit('Returns the count for an empty linked list', () => {
+      it('Returns the count for an empty linked list', () => {
         expect(level1.count(buildList(0))).to.be.equal(0);
       });
 
-      xit('Returns the count for a non-empty linked list', () => {
+      it('Returns the count for a non-empty linked list', () => {
         expect(level1.count(buildList(3))).to.be.equal(3);
       });
     });
 
     describe("#insertInFront", () => {
-      xit('Inserts a node on an empty linked list', () => {
+      it('Inserts a node on an empty linked list', () => {
         expect(level1.insertInFront(4, buildList(0))).to.be.eql({
           value: 4,
           next: null
         });
       });
 
-      xit('Inserts a node on a non-empty linked list', () => {
+      it('Inserts a node on a non-empty linked list', () => {
         expect(level1.insertInFront(4, buildList(3))).to.be.eql({
           value: 4,
           next: buildList(3)
@@ -44,33 +44,33 @@ describe('LinkedList', () => {
     });
 
     describe("#Sum", () => {
-      xit('Returns the sum for an empty linked list', () => {
+      it('Returns the sum for an empty linked list', () => {
         expect(level1.sum(buildList(0))).to.be.equal(0);
       });
 
-      xit('Returns the sum for a non-empty linked list', () => {
+      it('Returns the sum for a non-empty linked list', () => {
         expect(level1.sum(buildList(3))).to.be.equal(6);
       });
     });
 
     describe("#GetValueAtIndex", () => {
-      xit('Returns the value for a linked list at a certain index', () => {
+      it('Returns the value for a linked list at a certain index', () => {
         expect(level1.getValueAtIndex(buildList(3), 2)).to.be.equal(1);
         expect(level1.getValueAtIndex(buildList(3), 0)).to.be.equal(3);
       });
 
-      xit('Throws an error when the index is out of bounds', () => {
+      it('Throws an error when the index is out of bounds', () => {
         expect(() => level1.getValueAtIndex(buildList(3), -1)).to.throw(Error);
         expect(() => level1.getValueAtIndex(buildList(3), 3)).to.throw(Error);
       });
     });
 
     describe("#ToArray", () => {
-      xit('Returns the an empty array for an empty linked list', () => {
+      it('Returns the an empty array for an empty linked list', () => {
         expect(level1.toArray(buildList(0))).to.be.eql([]);
       });
 
-      xit('Returns an array for a non-empty linked list', () => {
+      it('Returns an array for a non-empty linked list', () => {
         expect(level1.toArray(buildList(3))).to.be.eql([3, 2, 1]);
       });
     });
@@ -78,14 +78,14 @@ describe('LinkedList', () => {
 
   describe('Level Two', () => {
     describe("#InsertInBack", () => {
-      xit('Inserts an item to the end of an empty linked list', () => {
+      it('Inserts an item to the end of an empty linked list', () => {
         expect(level2.insertInBack(4, buildList(0))).to.be.eql({
           value: 4,
           next: null
         });
       });
 
-      xit('Inserts an item to the end of a non-empty linked list', () => {
+      it('Inserts an item to the end of a non-empty linked list', () => {
         expect(level2.insertInBack(4, buildList(3))).to.be.eql({
           value: 3,
           next: {
@@ -103,11 +103,11 @@ describe('LinkedList', () => {
     });
 
     describe("#RemoveNodeAtIndex", () => {
-      xit('Removes a node at a certain index for an empty linked list', () => {
+      it('Removes a node at a certain index for an empty linked list', () => {
         expect(level2.removeNodeAtIndex(buildList(0), 1)).to.be.equal(null);
       });
 
-      xit('Inserts an item to the end of a non-empty linked list', () => {
+      it('Inserts an item to the end of a non-empty linked list', () => {
         expect(level2.removeNodeAtIndex(buildList(3), 1)).to.be.eql({
           value: 3,
           next: {
@@ -119,11 +119,11 @@ describe('LinkedList', () => {
     });
 
     describe("#Reverse", () => {
-      xit('Returns the reverse of an empty linked list', () => {
+      it('Returns the reverse of an empty linked list', () => {
         expect(level2.reverse(buildList(0))).to.be.equal(null);
       });
 
-      xit('Returns the reverse of a non-empty linked list', () => {
+      it('Returns the reverse of a non-empty linked list', () => {
         expect(level2.reverse(buildList(3), 1)).to.be.eql({
           value: 1,
           next: {

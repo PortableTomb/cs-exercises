@@ -12,6 +12,10 @@ class Queue {
   // tail. If this is the first time added, it needs to set the tail and the
   // head. Don't forget to update the length field.
   enqueue(value) {
+    
+    this._head = null;
+    this._tail = null;
+    this.length = 0;
 
   }
 

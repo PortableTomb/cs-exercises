@@ -30,7 +30,11 @@ const LANG_LIST = {
 }
 
 const greet = (language) => {
-
+  if(LANG_LIST[language.toLowerCase()] === undefined) {
+  return LANG_LIST.english + " a Miami.";
+} else {
+  return LANG_LIST[language.toLowerCase()] + " a Miami.";
+}
 }
 
 
@@ -46,7 +50,13 @@ i.e. [1, 'z', 'bob', true, 42, 'bob'] => { '1': 0, 'z': 1, 'bob': '5', 'true': 3
 */
 
 const removeDupes = (numArr) => {
+let numObj = {};
 
+numArr.forEach(function(element, index){
+
+    numObj[element] = index;
+  });
+  return numObj;
 }
 
 
@@ -61,7 +71,16 @@ i.e. { 'foo': 6, 'bar': 3, 'baz': 'bob', 13: 13 } => { 'bar': 3, '13': 13 }
 */
 
 const onlyOdds = (mixedHash) => {
+  // create new object
+  let newObj = {};
 
+  // loop, if mH key is /2 w/ r1, it's odd
+  for(let key in mixedHash){
+    if(mixedHash[key] % 2 === 1) {
+      newObj[key] = mixedHash[key];
+    }
+  }
+  return newObj;
 };
 
 /*
@@ -75,7 +94,15 @@ i.e. "hello" => { h: 1, e: 1, l: 2, o: 1 }
 */
 
 const charCount = (word) => {
-
-};
+  // convert word to lowercase
+  word = word.toLowerCase();
+  // create obj
+  let obj = {};
+  // split word on ea element
+  word.split('').forEach((element) => {
+    obj[element] ? obj[element]++ : obj[element] =1;
+  });
+  return obj;
+}
 
 module.exports = { greet, removeDupes, onlyOdds, charCount };

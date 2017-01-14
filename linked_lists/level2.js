@@ -5,6 +5,14 @@
 // Example:
 //    insertInBack(1 -> 2 -> 3 -> ., 4) produces 1 -> 2 -> 3 -> 4 -> .
 function insertInBack(value, list) {
+  // Inserts an item to the end of a empty linked list
+  if(list === null ) {
+    return {next:list, value: value}
+  }
+  return {
+    value: list.value,
+    next:  insertInBack(value, list.next)
+  }
 
 }
 
@@ -15,8 +23,15 @@ function insertInBack(value, list) {
 // Example:
 //  removeNodeAtIndex(1 -> 2 -> 3 -> ., 1) produces 1 -> 3 -> .
 function removeNodeAtIndex(list, index) {
-
-}
+  let i = 0;
+    for(let linkedList = list; linkedList; linkedList = linkedList.next) {
+      if (i + 1 === index) {
+        linkedList.next = linkedList.next.next;
+      }
+      i++;
+    }
+    return list;
+    }
 
 // Write a function named reverse that takes in the following:
 //   list (a linked list)
@@ -25,7 +40,17 @@ function removeNodeAtIndex(list, index) {
 //   1 -> 2 -> 3 -> . would produce 3 -> 2 -> 1 -> .
 function reverse(list) {
 
-}
+  var currNode = list, prevNode = temp = null;
+
+   while(currNode != null) {
+      temp = currNode.next;
+      currNode.next = prevNode;
+      prevNode = currNode;
+      currNode = temp;
+   }
+   return prevNode ;
+ }
+// }
 
 module.exports = {
   insertInBack,
