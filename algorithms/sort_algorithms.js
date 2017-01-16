@@ -53,17 +53,11 @@ function merge(arr1, arr2) {
       i = 1,
       j = 1;
 
-  if(arr1.length ==0)
+  if(arr1.length === 0)
     return b;
-  if(arr2.length ==0)
+  if(arr2.length === 0)
     return a;
-  /*
-  if arr1 or bElm exists we will insert to merged array
-  (will go inside while loop)
-   to insert: aElm exists and bElm doesn't exists
-             or both exists and aElm < bElm
-    this is the critical part of the example
-  */
+
   while(aElm || bElm){
    if((aElm && !bElm) || aElm < bElm){
      merged.push(aElm);
@@ -77,10 +71,27 @@ function merge(arr1, arr2) {
   return merged;
 }
 
-// }
 
 function partition(arr, left, right) {
+  let pivot = arr[left];
+  let partitionIndex = left;
 
+  for (let i = 0; i < arr.length; i++) {
+    if (i > left && i < (right + 1)) {
+      if (arr[i] < pivot) {
+        partitionIndex++;
+        let temp = arr[i];
+        arr[i] = arr[partitionIndex];
+        arr[partitionIndex] = temp;
+      }
+    }
+  }
+
+  let temp = arr[left];
+  arr[left] = arr[partitionIndex];
+  arr[partitionIndex] = temp;
+
+  return partitionIndex;
 }
 
 function mergeSort(arr) {
@@ -115,9 +126,23 @@ function mergeSort(arr) {
  }
 }
 
-function quickSort(arr) {
+function quickSort(arr, left=0, right=arr.length -1){
+  let len = arr.length;
+  let pivot;
+  let partitionIndex;
 
+  if (left < right) {
+    pivot = right;
+    partitionIndex = partition(arr, left, right);
+
+   //sort left and right
+   quickSort(arr, left, partitionIndex - 1);
+   quickSort(arr, partitionIndex + 1, right);
+  }
+
+  return arr;
 }
+
 
 module.exports = {
   swap,

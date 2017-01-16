@@ -16,7 +16,7 @@ const Stack = require('./stack');
 //   checkParens('(adfa(dvb)') -> false
 
 function checkParens(str) {
-
+var str = true; 
 }
 
 // Write a function named validate that takes in a string of text
