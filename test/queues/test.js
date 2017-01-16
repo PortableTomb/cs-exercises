@@ -2,7 +2,7 @@ const expect = require("chai").expect;
 const Queue = require('../../queues/queue');
 
 describe("#enqueue", () => {
-  xit('Properly enqueues an item', () => {
+  it('Properly enqueues an item', () => {
     const queue = new Queue();
 
     queue.enqueue(1);
@@ -24,7 +24,7 @@ describe("#enqueue", () => {
 });
 
 describe("#peek", () => {
-  xit('Properly peeks an item', () => {
+  it('Properly peeks an item', () => {
     const queue = new Queue();
 
     queue.enqueue(1);
@@ -45,7 +45,7 @@ describe("#peek", () => {
 });
 
 describe("#dequeue", () => {
-  xit('Properly dequeues an item', () => {
+  it('Properly dequeues an item', () => {
     const queue = new Queue();
 
     queue.enqueue(1);
