@@ -15,9 +15,37 @@ const Stack = require('./stack');
 //   checkParens('()()') -> true
 //   checkParens('(adfa(dvb)') -> false
 
+// Soultion Psdueo Code
+// create a stack and store it in a variable
+// create two objects — one for all the open parenthesis characters and one for all the closed parenthesis characters
+// for the open parentheses map, set the keys to the open parenthesis symbols and the values to the matching closing parenthesis symbol
+// for the closed parentheses map, set the the keys to the closed parenthesis symbols and the values to true
+// iterate through the characters of the string for each character
+// if the character is an open parenthesis character, push the character onto the stack
+// else if the character is a closed parenthesis character, then pop off the last opening parenthesis from the stack and compare it’s closing pair to the current character
+// if the character is not equal to the required closing parenthesis symbol, then you have an imbalanced string and should return false
+// return an equality comparison between the stack length and 0 — if the stack is empty and we have looped through the whole input string, we can assume that we have a balanced string.
+
 function checkParens(str) {
-var str = true; 
-}
+
+  let stack = [];
+
+  const open = { '{': '}', '[': ']', '(': ')' };
+  const closed = { '}': true, ']': true, ')': true };
+
+  for (let i = 0; i < str.length; i ++) {
+    const char = str[i];
+      if (open[char]) {
+        stack.push(char);
+        } else if (closed[char]) {
+
+      if (open[stack.pop()] !== char) return false;
+      }
+    }
+
+  return stack.length === 0;
+  }
+
 
 // Write a function named validate that takes in a string of text
 // representing some code filled with parentheses (), brackets [], and
@@ -38,6 +66,23 @@ var str = true;
 // "}" should return false (no opening curly brace)
 
 function validate(str) {
+
+  let stack = [];
+
+  const open = { '{': '}', '[': ']', '(': ')' };
+  const closed = { '}': true, ']': true, ')': true };
+
+  for (let i = 0; i < str.length; i ++) {
+    const char = str[i];
+      if (open[char]) {
+        stack.push(char);
+        } else if (closed[char]) {
+
+      if (open[stack.pop()] !== char) return false;
+      }
+    }
+
+  return stack.length === 0;
 
 }
 
@@ -87,6 +132,28 @@ function validate(str) {
 //   { command: 'undo' }
 // ]
 function finalText(commands) {
+ let stack = [];
+
+ for(cmd of commands) {
+   if(cmd.command === 'write'){
+     stack.push(cmd.text);
+   }
+
+   if(cmd.command === 'undo'){
+     if( stack.length === 0){
+      throw new Error('error');
+       }
+     stack.pop();
+   }
+
+ }
+
+let str = '';
+while(stack.length > 0){
+  str = stack.pop() + str;
+}
+
+ return str;
 
 }
 
@@ -127,6 +194,28 @@ function finalText(commands) {
 // ]
 // Should throw an error.
 function finalText2(commands) {
+  let stack = [];
+
+  for(cmd of commands) {
+    if(cmd.command === 'write'){
+      stack.push(cmd.text);
+    }
+
+    if(cmd.command === 'undo'){
+      if( stack.length === 0){
+       throw new Error('error');
+        }
+      stack.pop();
+    }
+
+  }
+
+  let str = '';
+  while(stack.length > 0){
+   str = stack.pop() + str;
+  }
+
+  return str;
 
 }
 
