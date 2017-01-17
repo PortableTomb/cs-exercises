@@ -195,6 +195,7 @@ while(stack.length > 0){
 // Should throw an error.
 function finalText2(commands) {
   let stack = [];
+  let redostack = [];
 
   for(cmd of commands) {
     if(cmd.command === 'write'){
@@ -205,17 +206,23 @@ function finalText2(commands) {
       if( stack.length === 0){
        throw new Error('error');
         }
-      stack.pop();
+      redostack.push(stack.pop());
     }
 
+    if(cmd.command === 'redo'){
+      if( redostack.length === 0){
+       throw new Error('error');
+        }
+      stack.push(redostack.pop());
+    }
   }
+    let str = '';
+    while(stack.length > 0){
+     str = stack.pop() + str;
+    }
+    return str;
 
-  let str = '';
-  while(stack.length > 0){
-   str = stack.pop() + str;
-  }
 
-  return str;
 
 }
 
