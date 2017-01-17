@@ -8,14 +8,14 @@ const level3 = require('../../trees/level3');
 describe('Trees', () => {
   describe('Level One', () => {
     describe("#treeCount", () => {
-      xit('Returns the count for an simple tree', () => {
+      it('Returns the count for an simple tree', () => {
         expect(level1.treeCount({
           value: 4,
           children: []
         })).to.be.equal(1);
       });
 
-      xit('Returns the count for a more complex tree', () => {
+      it('Returns the count for a more complex tree', () => {
         expect(level1.treeCount({
           value: 4,
           children: [{
@@ -33,11 +33,11 @@ describe('Trees', () => {
     });
 
     describe("#binTreeCount", () => {
-      xit('Returns the count for an empty binary tree', () => {
+      it('Returns the count for an empty binary tree', () => {
         expect(level1.binTreeCount(null)).to.be.equal(0);
       });
 
-      xit('Returns the count for a more complex binary tree', () => {
+      it('Returns the count for a more complex binary tree', () => {
         expect(level1.binTreeCount({
           value: 4,
           left: {
@@ -63,14 +63,14 @@ describe('Trees', () => {
     });
 
     describe("#treeHeight", () => {
-      xit('Returns the height for an simple tree', () => {
+      it('Returns the height for an simple tree', () => {
         expect(level1.treeHeight({
           value: 4,
           children: []
         })).to.be.equal(1);
       });
 
-      xit('Returns the height for a more complex tree', () => {
+      it('Returns the height for a more complex tree', () => {
         expect(level1.treeHeight({
           value: 4,
           children: [{
@@ -88,11 +88,11 @@ describe('Trees', () => {
     });
 
     describe("#binTreeHeight", () => {
-      xit('Returns the height for an empty binary tree', () => {
+      it('Returns the height for an empty binary tree', () => {
         expect(level1.binTreeHeight(null)).to.be.equal(0);
       });
 
-      xit('Returns the height for a more complex binary tree', () => {
+      it('Returns the height for a more complex binary tree', () => {
         expect(level1.binTreeHeight({
           value: 4,
           left: {
@@ -114,14 +114,14 @@ describe('Trees', () => {
     });
 
     describe("#sumTree", () => {
-      xit('Returns the sum for an simple tree', () => {
+      it('Returns the sum for an simple tree', () => {
         expect(level1.sumTree({
           value: 4,
           children: []
         })).to.be.equal(4);
       });
 
-      xit('Returns the sum for a more complex tree', () => {
+      it('Returns the sum for a more complex tree', () => {
         expect(level1.sumTree({
           value: 4,
           children: [{
@@ -139,11 +139,11 @@ describe('Trees', () => {
     });
 
     describe("#sumBinTree", () => {
-      xit('Returns the sum for an empty binary tree', () => {
+      it('Returns the sum for an empty binary tree', () => {
         expect(level1.sumBinTree(null)).to.be.equal(0);
       });
 
-      xit('Returns the sum for a more complex binary tree', () => {
+      it('Returns the sum for a more complex binary tree', () => {
         expect(level1.sumBinTree({
           value: 4,
           left: {
