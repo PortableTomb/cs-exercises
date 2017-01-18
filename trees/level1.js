@@ -101,13 +101,13 @@ function binTreeHeight(tree) {
 //    |
 //    7
 function sumTree(tree) {
-  let sum = 0;
+  let result = 0;
 
   for(child of tree.children) {
-    sum += sumTree(child);
+    result += sumTree(child);
   }
 
-  return sum + tree.value;
+  return result + tree.value;
 }
 
 

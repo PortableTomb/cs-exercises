@@ -31,8 +31,20 @@ function toArray(tree) {
 //   /|\       with value 1, produces true
 //  2 4 7      with value 3, produces false
 function findValueInTree(tree, value) {
-  return tree.value === value || tree.children.some((child) =>
-    findValueInTree(child, value));
+  let numbervalue = false;
+
+  if (tree.value === value) {
+    return true;
+  } else {
+    for (child of tree.children) {
+      numbervalue = findValueInTree(child, value);
+      if (numbervalue) {
+        return numbervalue;
+      }
+    }
+  }
+
+  return numbervalue;
 }
 
 // Write a function named findValueInBinTree that takes in the following:
@@ -45,12 +57,19 @@ function findValueInTree(tree, value) {
 //   / \       with value 1, produces true
 //  1   7      with value 3, produces false
 function findValueInBinTree(tree, value) {
-  if (tree === null) {
-    return false;
+ if (tree === null) {
+   return false;
+ }
+
+  let numbervalue = false;
+
+  if (tree.value === value) {
+   return true;
+  } else {
+   numbervalue = findValueInBinTree(tree.right, value) || findValueInBinTree(tree.left, value);
   }
 
-  return tree.value === value || findValueInBinTree(tree.left, value) ||
-    findValueInBinTree(tree.right, value);
+ return numbervalue;
 }
 
 // Write a function named findValueInBinSearchTree that takes in the following:
@@ -69,9 +88,16 @@ function findValueInBinSearchTree(tree, value) {
     return false;
   }
 
-  return tree.value === value || (value < tree.value) ?
-    findValueInBinTree(tree.left, value) :
-    findValueInBinTree(tree.right, value);
+  if (tree.value > value) {
+    return findValueInBinSearchTree(tree.left, value);
+  }
+  if (tree.value < value) {
+    return findValueInBinSearchTree(tree.right, value);
+  }
+
+  if (tree.value === value) {
+    return true;
+  }
 }
 
 // Write a function named insertInBinSearchTree that takes in the following:
@@ -87,27 +113,8 @@ function findValueInBinSearchTree(tree, value) {
 //                                         / \
 //                                        5   *
 function insertValueInBinSearchTree(tree, value) {
-  if (tree === null) {
-    return {
-      value,
-      left: null,
-      right: null
-    };
-  }
 
-  if (value < tree.value) {
-    return {
-      value: tree.value,
-      left: insertValueInBinSearchTree(tree.left, value),
-      right: tree.right
-    };
-  } else {
-    return {
-      value: tree.value,
-      left: tree.left,
-      right: insertValueInBinSearchTree(tree.right, value)
-    };
-  }
+
 }
 
 module.exports = {

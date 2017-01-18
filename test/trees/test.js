@@ -167,11 +167,11 @@ describe('Trees', () => {
 
   describe('Level Two', () => {
     describe("#toArray", () => {
-      xit('Returns an empty array for an empty BST', () => {
+      it('Returns an empty array for an empty BST', () => {
         expect(level2.toArray(null)).to.be.eql([]);
       });
 
-      xit('Returns a proper array for a more complex tree', () => {
+      it('Returns a proper array for a more complex tree', () => {
         expect(level2.toArray({
           value: 6,
           left: {
@@ -197,7 +197,7 @@ describe('Trees', () => {
     });
 
     describe("#findValueInTree", () => {
-      xit('Returns true for a value in a tree', () => {
+      it('Returns true for a value in a tree', () => {
         expect(level2.findValueInTree({
           value: 4,
           children: [{
@@ -213,7 +213,7 @@ describe('Trees', () => {
         }, 2)).to.be.equal(true);
       });
 
-      xit('Returns false for a value not in a tree', () => {
+      it('Returns false for a value not in a tree', () => {
         expect(level2.findValueInTree({
           value: 4,
           children: [{
@@ -231,7 +231,7 @@ describe('Trees', () => {
     });
 
     describe("#findValueInBinTree", () => {
-      xit('Returns true for a value in a tree', () => {
+      it('Returns true for a value in a tree', () => {
         expect(level2.findValueInBinTree({
           value: 4,
           left: {
@@ -255,7 +255,7 @@ describe('Trees', () => {
         }, 2)).to.be.equal(true);
       });
 
-      xit('Returns false for a value not in a tree', () => {
+      it('Returns false for a value not in a tree', () => {
         expect(level2.findValueInBinTree({
           value: 4,
           left: {
@@ -281,7 +281,7 @@ describe('Trees', () => {
     });
 
     describe("#findValueInBinSearchTree", () => {
-      xit('Returns true for a value in a tree', () => {
+      it('Returns true for a value in a tree', () => {
         expect(level2.findValueInBinSearchTree({
           value: 6,
           left: {
@@ -305,7 +305,7 @@ describe('Trees', () => {
         }, 2)).to.be.equal(true);
       });
 
-      xit('Returns false for a value not in a tree', () => {
+      it('Returns false for a value not in a tree', () => {
         expect(level2.findValueInBinSearchTree({
           value: 6,
           left: {
